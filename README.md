@@ -1,4 +1,4 @@
-ocker Image Commands:
+Docker Image Commands:
 
 To build an image form dockerfile docker build -t <image_name>: . -t = tag . = current working dir
 
