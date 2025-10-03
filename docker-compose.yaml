@@ -51,7 +51,8 @@ services:
     - cart
 
   rabbitmq:
-    image: revops78/rabbitmq:3
+    image: 
+    rabbitmq:3
     container_name: rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
