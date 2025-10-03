@@ -11,47 +11,47 @@ volumes:
 
 services:
   mongodb:
-    image: mongodb:v1
+    image: revops78/mongodb:v1
     container_name: mongodb
     volumes:
     - mongodb:/data/db
   catalogue:
-    image: catalogue:v1
+    image: revops78/catalogue:v1
     container_name: catalogue
     depends_on:
     - mongodb
   redis:
-    image: redis:7.0
+    image: revops78/redis:7.0
     container_name: redis
     volumes:
     - redis:/data
   user:
-    image: user:v1
+    image: revops78/user:v1
     container_name: user
     depends_on:
     - redis
     - mongodb
   cart:
-    image: cart:v1
+    image: revops78/cart:v1
     container_name: cart
     depends_on:
     - catalogue
     - redis
   mysql:
-    image: mysql:v1
+    image: revops78/mysql:v1
     container_name: mysql
     volumes:
     - mysql:/var/lib/mysql
 
   shipping:
-    image: shipping:v1
+    image: revops78/shipping:v1
     container_name: shipping
     depends_on:
     - mysql
     - cart
 
   rabbitmq:
-    image: rabbitmq:3
+    image: revops78/rabbitmq:3
     container_name: rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
@@ -59,7 +59,7 @@ services:
     volumes:
     - rabbitmq:/var/lib/rabbitmq
   payment:
-    image: payment:v1
+    image: revops78/payment:v1
     container_name: payment
     environment:
       CART_HOST: cart
@@ -75,7 +75,7 @@ services:
     - user
   
   frontend:
-    image: frontend:v1
+    image: revops78/frontend:v1
     container_name: frontend
     ports:
       - "80:80"
