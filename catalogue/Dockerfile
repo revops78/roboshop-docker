@@ -29,7 +29,7 @@
 
 
 # Base image
-FROM node:20
+FROM node:20-alpine3.21
 
 # Create roboshop user and group
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
