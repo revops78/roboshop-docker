@@ -16,7 +16,7 @@ services:
     volumes:
     - mongodb:/data/db
   catalogue:
-    image: revops/78catalogue:v1
+    image: revops78/catalogue:v1
     container_name: catalogue
     depends_on:
     - mongodb
